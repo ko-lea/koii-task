@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the matching numbers</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: linear-gradient(to bottom right, #975bff, #c290f4);
+        }
+        .container_1 {
+            text-align: center;
+            background: #6329c6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="container_1">
+    <h1>Find the matching number</h1>
+    <p id="result"></p>
+    <input type="text" id="formula" placeholder="x + y * z">
+    <button onclick="checkGuess_1()">Submit</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    const actualFormula = "20 + 5 * 16";
+    const correctResult = eval(actualFormula);  // Calculate the correct result of the formula
+
+    document.getElementById("result").innerText = `Get the correct formula to go to ${correctResult}`;
+
+    function checkGuess_1() {
+        const userFormula = document.getElementById("formula").value;
+        let userResult;
+
+        try {
+            userResult = eval(userFormula);
+        } catch (e) {
+            document.getElementById("message").innerText = "Invalid formula. Please try again.";
+            return;
+        }
+
+        if (userResult === correctResult && userFormula.replace(/\s+/g, '') === actualFormula.replace(/\s+/g, '')) {
+            document.getElementById("message").innerText = "Congratulations! You guessed the correct formula.";
+        } else if (userResult === correctResult) {
+            document.getElementById("message").innerText = "Correct result but wrong formula. Try again.";
+        } else {
+            document.getElementById("message").innerText = "Incorrect formula. Try again.";
+        }
+    }
+    function BuildContainers() {
+        const nbr_containers = 6;
+        const Containers = [];
+        for (let i=1; i<=nbr_containers; 1) {
+            const Containers = document.getElementsByClassName()
+        }
+    }
+</script>
+
+</body>
+</html>
